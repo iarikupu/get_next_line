@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*full_line(int fd, char *left)
 {
@@ -41,7 +41,7 @@ char	*get_next_line(int fd)
 	static char	*left[2048];
 	char		*line;
 
-	if (fd < 0 || BUFFER_SIZE <= 0)
+	if (fd < 0 || BUFFER_SIZE <= 0 || fd > 1024)
 		return (NULL);
 	left[fd] = full_line(fd, left[fd]);
 	if (! left[fd])
